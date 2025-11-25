@@ -13,7 +13,7 @@
 edition = "2021"
 rust-version = "1.82"
 name = "gix-worktree"
-version = "0.43.1"
+version = "0.44.0"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
 build = false
 include = [
@@ -85,13 +85,13 @@ version = "^0.20.1"
 version = "^0.17.1"
 
 [dependencies.gix-index]
-version = "^0.42.1"
+version = "^0.43.0"
 
 [dependencies.gix-object]
-version = "^0.51.1"
+version = "^0.52.0"
 
 [dependencies.gix-path]
-version = "^0.10.21"
+version = "^0.10.22"
 
 [dependencies.gix-validate]
 version = "^0.10.1"

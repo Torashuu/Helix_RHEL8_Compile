@@ -13,7 +13,7 @@
 edition = "2021"
 rust-version = "1.82"
 name = "gix-path"
-version = "0.10.21"
+version = "0.10.22"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
 build = false
 include = [
@@ -52,9 +52,6 @@ version = "2.0.17"
 [dev-dependencies.serial_test]
 version = "3.1.0"
 default-features = false
-
-[target.'cfg(not(target_family = "wasm"))'.dependencies.home]
-version = "0.5.5"
 
 [target."cfg(windows)".dev-dependencies.windows]
 version = "0.62.1"

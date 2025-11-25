@@ -13,7 +13,7 @@
 edition = "2021"
 rust-version = "1.82"
 name = "gix-index"
-version = "0.42.1"
+version = "0.43.0"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
 build = false
 include = [
@@ -84,10 +84,10 @@ version = "^0.20.1"
 version = "^19.0.0"
 
 [dependencies.gix-object]
-version = "^0.51.1"
+version = "^0.52.0"
 
 [dependencies.gix-traverse]
-version = "^0.48.0"
+version = "^0.49.0"
 
 [dependencies.gix-utils]
 version = "^0.3.1"

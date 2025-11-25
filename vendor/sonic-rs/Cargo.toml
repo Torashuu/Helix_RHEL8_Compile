@@ -12,7 +12,7 @@
 [package]
 edition = "2021"
 name = "sonic-rs"
-version = "0.5.5"
+version = "0.5.6"
 authors = ["Volo Team <volo@cloudwego.io>"]
 build = false
 exclude = [
@@ -43,6 +43,7 @@ repository = "https://github.com/cloudwego/sonic-rs"
 
 [features]
 arbitrary_precision = []
+avx512 = ["sonic-simd/avx512"]
 default = []
 non_trailing_zero = []
 sanitize = []

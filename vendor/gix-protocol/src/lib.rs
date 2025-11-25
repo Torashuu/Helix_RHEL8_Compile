@@ -2,7 +2,7 @@
 //!
 //! Generally, there is the following order of operations.
 //!
-//! * create a [`Transport`](gix_transport::client::Transport)
+//! * create a `Transport`, either blocking or async
 //! * perform a [`handshake()`]
 //! * execute a [`Command`]
 //!     - [list references](ls_refs())
@@ -61,6 +61,8 @@ pub mod handshake;
 #[cfg(any(feature = "blocking-client", feature = "async-client"))]
 #[cfg(feature = "handshake")]
 pub use handshake::function::handshake;
+#[cfg(feature = "handshake")]
+pub use handshake::hero::Handshake;
 
 ///
 pub mod ls_refs;

@@ -13,7 +13,7 @@
 edition = "2021"
 rust-version = "1.82"
 name = "gix-refspec"
-version = "0.32.0"
+version = "0.33.0"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
 build = false
 include = [
@@ -41,11 +41,14 @@ version = "1.12.0"
 features = ["std"]
 default-features = false
 
+[dependencies.gix-glob]
+version = "^0.22.1"
+
 [dependencies.gix-hash]
 version = "^0.20.0"
 
 [dependencies.gix-revision]
-version = "^0.36.0"
+version = "^0.37.0"
 default-features = false
 
 [dependencies.gix-validate]
@@ -57,7 +60,8 @@ version = "1.15.1"
 [dependencies.thiserror]
 version = "2.0.17"
 
-[dev-dependencies]
+[dev-dependencies.insta]
+version = "1.43.2"
 
 [lints.clippy]
 bool_to_int_with_if = "allow"

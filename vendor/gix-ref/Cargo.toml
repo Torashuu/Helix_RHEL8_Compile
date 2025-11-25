@@ -13,7 +13,7 @@
 edition = "2021"
 rust-version = "1.82"
 name = "gix-ref"
-version = "0.54.1"
+version = "0.55.0"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
 build = false
 include = [
@@ -55,7 +55,7 @@ version = "0.2.1"
 optional = true
 
 [dependencies.gix-actor]
-version = "^0.35.6"
+version = "^0.36.0"
 
 [dependencies.gix-features]
 version = "^0.44.1"
@@ -71,10 +71,10 @@ version = "^0.20.1"
 version = "^19.0.0"
 
 [dependencies.gix-object]
-version = "^0.51.1"
+version = "^0.52.0"
 
 [dependencies.gix-path]
-version = "^0.10.21"
+version = "^0.10.22"
 
 [dependencies.gix-tempfile]
 version = "^19.0.0"

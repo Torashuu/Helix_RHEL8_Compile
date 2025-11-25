@@ -13,7 +13,7 @@
 edition = "2021"
 rust-version = "1.82"
 name = "gix-config"
-version = "0.47.1"
+version = "0.48.0"
 authors = ["Edward Shen <code@eddie.sh>"]
 build = false
 include = [
@@ -78,10 +78,10 @@ version = "^0.44.1"
 version = "^0.22.1"
 
 [dependencies.gix-path]
-version = "^0.10.21"
+version = "^0.10.22"
 
 [dependencies.gix-ref]
-version = "^0.54.1"
+version = "^0.55.0"
 
 [dependencies.gix-sec]
 version = "^0.12.2"

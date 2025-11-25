@@ -13,7 +13,7 @@
 edition = "2021"
 rust-version = "1.82"
 name = "gix-url"
-version = "0.33.1"
+version = "0.33.2"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
 build = false
 include = [
@@ -59,7 +59,7 @@ optional = true
 version = "^0.44.1"
 
 [dependencies.gix-path]
-version = "^0.10.21"
+version = "^0.10.22"
 
 [dependencies.percent-encoding]
 version = "2.3.1"
@@ -75,9 +75,6 @@ default-features = false
 
 [dependencies.thiserror]
 version = "2.0.17"
-
-[dependencies.url]
-version = "2.5.2"
 
 [dev-dependencies.assert_matches]
 version = "1.5.0"

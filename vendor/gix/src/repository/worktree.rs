@@ -1,3 +1,4 @@
+use crate::bstr::BStr;
 use crate::{worktree, Worktree};
 
 /// Interact with individual worktrees and their information.
@@ -20,16 +21,22 @@ impl crate::Repository {
         for entry in iter {
             let entry = entry?;
             let worktree_git_dir = entry.path();
-            if worktree_git_dir.join("gitdir").is_file() {
-                res.push(worktree::Proxy {
-                    parent: self,
-                    git_dir: worktree_git_dir,
-                });
-            }
+            res.extend(worktree::Proxy::new_if_gitdir_file_exists(self, worktree_git_dir));
         }
         res.sort_by(|a, b| a.git_dir.cmp(&b.git_dir));
         Ok(res)
     }
+
+    /// Return the worktree that [is identified](Worktree::id) by the given `id`, if it exists at
+    /// `.git/worktrees/<id>` and its `gitdir` file exists.
+    /// Return `None` otherwise.
+    pub fn worktree_proxy_by_id<'a>(&self, id: impl Into<&'a BStr>) -> Option<worktree::Proxy<'_>> {
+        worktree::Proxy::new_if_gitdir_file_exists(
+            self,
+            self.common_dir().join("worktrees").join(gix_path::from_bstr(id.into())),
+        )
+    }
+
     /// Return the repository owning the main worktree, typically from a linked worktree.
     ///
     /// Note that it might be the one that is currently open if this repository doesn't point to a linked worktree.
@@ -41,7 +48,7 @@ impl crate::Repository {
 
     /// Return the currently set worktree if there is one, acting as platform providing a validated worktree base path.
     ///
-    /// Note that there would be `None` if this repository is `bare` and the parent [`Repository`][crate::Repository] was instantiated without
+    /// Note that there would be `None` if this repository is `bare` and the parent [`Repository`](crate::Repository) was instantiated without
     /// registered worktree in the current working dir, even if no `.git` file or directory exists.
     /// It's merely based on configuration, see [Worktree::dot_git_exists()] for a way to perform more validation.
     pub fn worktree(&self) -> Option<Worktree<'_>> {
@@ -50,7 +57,7 @@ impl crate::Repository {
 
     /// Return true if this repository is bare, and has no main work tree.
     ///
-    /// This is not to be confused with the [`worktree()`][crate::Repository::worktree()] worktree, which may exists if this instance
+    /// This is not to be confused with the [`worktree()`](crate::Repository::worktree()) method, which may exist if this instance
     /// was opened in a worktree that was created separately.
     pub fn is_bare(&self) -> bool {
         self.config.is_bare && self.workdir().is_none()

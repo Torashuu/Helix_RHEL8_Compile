@@ -160,7 +160,7 @@ impl Response {
                     });
                 }
                 // It's easy to NOT do sideband for us, but then again, everyone supports it.
-                // CORRECTION: If side-band is off, it would send the packfile without packet line encoding,
+                // CORRECTION: If sideband is off, it would send the packfile without packet line encoding,
                 // which is nothing we ever want to deal with (despite it being more efficient). In V2, this
                 // is not even an option anymore, sidebands are always present.
                 if !has("side-band") && !has("side-band-64k") {
@@ -185,7 +185,7 @@ impl Response {
     }
 
     /// Append the given `updates` which may have been obtained from a
-    /// (handshake::Outcome)[crate::handshake::Outcome::v1_shallow_updates].
+    /// (handshake::Outcome)[crate::Handshake::v1_shallow_updates].
     ///
     /// In V2, these are received as part of the pack, but V1 sends them early, so we
     /// offer to re-integrate them here.
